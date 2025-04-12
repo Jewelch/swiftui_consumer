@@ -29,7 +29,7 @@ public extension DataSource {
 }
 
 // Add Combine to async/await bridge
-public extension AnyPublisher {
+public extension AnyPublisher where Output: Sendable {
     func async() async throws -> Output {
         try await withCheckedThrowingContinuation { continuation in
             var cancellable: AnyCancellable?
@@ -43,8 +43,8 @@ public extension AnyPublisher {
                         continuation.resume(throwing: error)
                     }
                     cancellable?.cancel()
-                } receiveValue: { value in
-//                    continuation.resume(returning: value)
+                } receiveValue: { [continuation] value in
+                    continuation.resume(returning: value)
                 }
         }
     }
