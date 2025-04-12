@@ -7,6 +7,29 @@
 
 import Foundation
 
+/// Protocol that allows an application to define its DataSourceConfiguration
+/// This follows the same pattern as EnvironmentSelector to provide a cleaner, more consistent implementation
+@MainActor
+public protocol DataSourceSelector {
+    /// The configuration to use for the DataSourceConfigurator
+    static var dataSourceConfig: DataSourceConfiguration { get set }
+}
+
+/// Default implementation
+@MainActor
+public extension DataSourceSelector {
+    /// Configures the DataSourceConfigurator with the provided configuration
+    static var dataSourceConfig: DataSourceConfiguration {
+        get {
+            // Return nil by making it a computed property that accesses internal storage
+            fatalError("dataSourceConfig is write-only. Use this property to configure DataSourceConfigurator.")
+        }
+        set {
+            DataSourceConfigurator.configure(with: newValue)
+        }
+    }
+}
+
 public enum DataSourceConfigurator {
     public nonisolated(unsafe) static var debugginEnabled: Bool = false
     public nonisolated(unsafe) static var requestTimeoutInterval: TimeInterval = 60
