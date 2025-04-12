@@ -5,8 +5,9 @@
 //
 
 import Foundation
+import SwiftUI_Infrastructure
 
-public typealias DataSourceConfiguration = TimeoutsConfiguration & BaseApiHostConfiguration & InjectablesConfiguration & RequestDebugging
+public typealias DataSourceConfiguration = EnvironmentSelector & TimeoutsConfiguration & BaseApiHostConfiguration & InjectablesConfiguration & RequestDebugging
 
 // MARK: - BASE API HOST ---------------------------------------------------
 public protocol RequestDebugging {
