@@ -1,0 +1,15 @@
+{
+  "originHash" : "eada406f0a300e71852dd64b349dca6ba1a80fcd3025cf697c43bd6e1a55c296",
+  "pins" : [
+    {
+      "identity" : "swiftui_infrastructure",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Jewelch/swiftui_infrastructure.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "01c4e7b4c06bab746be7d48cbfd4ede1b5a3fb02"
+      }
+    }
+  ],
+  "version" : 3
+}
