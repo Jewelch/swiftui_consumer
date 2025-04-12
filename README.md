@@ -142,9 +142,11 @@ final class GetProductUC: UseCase<ProductModel, Product> {
 }
 
 // 5. Use in your ViewModel
-class ProductViewModel: ObservableObject {
+@MainActor
+@Observable
+class ProductViewModel: ObservableVM {
     private let getProduct: GetProductUC
-    @Published var product: Product?
+    var product: Product?
     
     init(getProduct: GetProductUC) {
         self.getProduct = getProduct
