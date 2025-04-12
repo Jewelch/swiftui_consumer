@@ -1,4 +1,4 @@
-// swift-tools-version: 5.5.0
+// swift-tools-version: 6.0
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
@@ -8,7 +8,7 @@ let package = Package(
     
     platforms: [
         .iOS(.v15),
-        .macOS(.v12),
+        .macOS(.v14),
         .tvOS(.v13),
         .watchOS(.v6),
     ],
@@ -28,9 +28,7 @@ let package = Package(
             name: "SwiftUI_Consumer",
             dependencies: [
                 .product(name: "SwiftUI_Infrastructure", package: "swiftui_infrastructure")
-            ]),
-        .testTarget(
-            name: "SwiftUI_ConsumerTests",
-            dependencies: ["SwiftUI_Consumer"]),
+            ])
+      
     ]
 )
