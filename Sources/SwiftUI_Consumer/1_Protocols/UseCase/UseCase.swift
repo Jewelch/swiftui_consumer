@@ -9,10 +9,10 @@ import Combine
 import Foundation
 import SwiftUI_Infrastructure
 
-open class UseCase<M: Model, E: Entity> where E.M == M {
-    private let dataSourceFetcher: (Any?) -> DataSourceResult<M>
+open class UseCase<M: Model, E: Entity>: @unchecked Sendable where E.M == M {
+    private let dataSourceFetcher: @Sendable (Any?) -> DataSourceResult<M>
 
-    public init(_ dataSourceFetcher: @escaping (Any?) -> DataSourceResult<M>) {
+    public init(_ dataSourceFetcher: @escaping @Sendable (Any?) -> DataSourceResult<M>) {
         self.dataSourceFetcher = dataSourceFetcher
     }
 
@@ -26,4 +26,3 @@ open class UseCase<M: Model, E: Entity> where E.M == M {
         try await publisherCall(params).async()
     }
 }
-
