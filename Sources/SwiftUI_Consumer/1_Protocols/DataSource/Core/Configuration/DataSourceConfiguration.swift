@@ -25,7 +25,7 @@ public extension RequestDebugging {
 // MARK: - Endpoints ---------------------------------------------------
 public protocol EndpointsConfiguration {
     associatedtype Endpoints
-    associatedtype Hosts = Any
+    associatedtype SecondaryHosts = Any
     var baseApiHost: String { get }
 }
 
