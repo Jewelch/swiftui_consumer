@@ -1,6 +1,5 @@
 //
 //  DataSourceConfiguration.swift
-//  SwiftUI_Consumer
 //
 //  Created by Jewel CHERIAA on 12/06/2023.
 //
@@ -8,7 +7,6 @@
 import Foundation
 
 public typealias DataSourceConfiguration = TimeoutsConfiguration & BaseApiHostConfiguration & InjectablesConfiguration & RequestDebugging
-
 
 // MARK: - BASE API HOST ---------------------------------------------------
 public protocol RequestDebugging {
@@ -18,8 +16,6 @@ public protocol RequestDebugging {
 public extension RequestDebugging {
     var debugginEnabled: Bool { return false }
 } // -----------------------------------------------------------------------
-
-
 
 // MARK: - TIMEOUTS --------------------------------------------------------
 public protocol TimeoutsConfiguration {

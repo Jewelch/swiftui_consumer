@@ -16,7 +16,7 @@ public extension Params {
             return "\(encodedKey)=\(encodedValue)"
         }.joined(separator: "&")
     }
-    
+
     func ifUniqueMerge(in dictionary: inout Params) {
         guard !isEmpty else { return }
         dictionary.merge(self) { _, new in new }

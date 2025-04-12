@@ -1,6 +1,5 @@
 //
 //  RestfulMethods.swift
-//  SwiftUI_Consumer
 //
 //  Created by Jewel CHERIAA on 18/06/2023.
 //

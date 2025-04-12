@@ -1,6 +1,5 @@
 //
 //  UseCase.swift
-//  SwiftUI_Consumer
 //
 //  Created by Jewel Cheriaa on 07/03/2025.
 //
@@ -26,4 +25,3 @@ open class UseCase<M: Model, E: Entity>: @unchecked Sendable where E.M == M {
         try await publisherCall(params).async()
     }
 }
-

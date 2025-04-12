@@ -1,6 +1,5 @@
 //
 //  Body.swift
-//  SwiftUI_Consumer
 //
 //  Created by Jewel CHERIAA on 02/06/2023.
 //

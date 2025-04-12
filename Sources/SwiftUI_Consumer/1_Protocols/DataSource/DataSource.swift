@@ -1,6 +1,5 @@
 //
 //  DataSource.swift
-//  SwiftUI_Consumer
 //
 //  Created by Jewel CHERIAA on 13/06/2023.
 //
@@ -28,4 +27,3 @@ public extension DataSource {
     var decodingStrategies: JSONDecodingStrategies { return .init() }
     var debugIt: Bool { return true }
 }
-
