@@ -17,7 +17,7 @@ public enum DataSourceConfigurator {
     public nonisolated(unsafe) static var defaultBodyEncoding: Body.DataEncoding = .JSON
     public nonisolated(unsafe) static var autoInjectableHeaders: Params = [:]
 
-    public static func configure(with config: DataSourceConfiguration) {
+    public static func configure(with config: any DataSourceConfiguration) {
         debugginEnabled = config.debugginEnabled
         requestTimeoutInterval = config.requestTimeoutInterval
         sessionTimeoutIntervalForRequest = config.sessionTimeoutIntervalForRequest

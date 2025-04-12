@@ -9,14 +9,14 @@
 @MainActor
 public protocol ConsumerConfigurator {
     /// The configuration to use for the DataSourceConfigurator
-    static var consumerConfiguration: DataSourceConfiguration { get set }
+    static var consumerConfig: any DataSourceConfiguration { get set }
 }
 
 /// Default implementation
 @MainActor
 public extension ConsumerConfigurator {
     /// Configures the DataSourceConfigurator with the provided configuration
-    static var consumerConfiguration: DataSourceConfiguration {
+    static var consumerConfig: any DataSourceConfiguration {
         get {
             // Return nil by making it a computed property that accesses internal storage
             fatalError("config is write-only. Use this property to configure DataSourceConfigurator.")

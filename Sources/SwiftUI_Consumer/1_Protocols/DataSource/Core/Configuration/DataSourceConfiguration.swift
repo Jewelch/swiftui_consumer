@@ -7,7 +7,7 @@
 import Foundation
 import SwiftUI_Infrastructure
 
-public typealias DataSourceConfiguration = EnvironmentSelector & TimeoutsConfiguration & BaseApiHostConfiguration & InjectablesConfiguration & RequestDebugging
+public typealias DataSourceConfiguration = EnvironmentSelector & TimeoutsConfiguration & Endpoints & InjectablesConfiguration & RequestDebugging
 
 // MARK: - BASE API HOST ---------------------------------------------------
 public protocol RequestDebugging {
@@ -17,6 +17,27 @@ public protocol RequestDebugging {
 public extension RequestDebugging {
     var debugginEnabled: Bool { return false }
 } // -----------------------------------------------------------------------
+
+// MARK: - Endpoints ---------------------------------------------------
+public protocol BaseApiHostConfiguration {
+    var baseApiHost: String { get }
+}
+
+public extension BaseApiHostConfiguration {
+    var baseApiHost: String { return "" }
+}
+
+public protocol Endpoint {
+    associatedtype Endpoints
+}
+
+public protocol Host {
+    associatedtype Hosts
+}
+
+public typealias Endpoints = BaseApiHostConfiguration & Endpoint & Host
+
+// -----------------------------------------------------------------------
 
 // MARK: - TIMEOUTS --------------------------------------------------------
 public protocol TimeoutsConfiguration {
@@ -29,15 +50,6 @@ public extension TimeoutsConfiguration {
     var requestTimeoutInterval: TimeInterval { return 60 }
     var sessionTimeoutIntervalForRequest: TimeInterval { return 60 }
     var sessionTimeoutIntervalForResource: TimeInterval { return 60 }
-} // -----------------------------------------------------------------------
-
-// MARK: - BASE API HOST ---------------------------------------------------
-public protocol BaseApiHostConfiguration {
-    var baseApiHost: String { get }
-}
-
-public extension BaseApiHostConfiguration {
-    var baseApiHost: String { return "" }
 } // -----------------------------------------------------------------------
 
 // MARK: - INJECTABLES -----------------------------------------------------
