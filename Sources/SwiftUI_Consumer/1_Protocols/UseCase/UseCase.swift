@@ -26,3 +26,4 @@ open class UseCase<M: Model, E: Entity>: @unchecked Sendable where E.M == M {
         try await publisherCall(params).async()
     }
 }
+
